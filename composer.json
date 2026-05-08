@@ -11,7 +11,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Ksfraser\\DataIO\\": "src/Ksfraser/DataIO/"
+            "Ksfraser\\": "src/Ksfraser/"
         }
     },
     "require-dev": {
