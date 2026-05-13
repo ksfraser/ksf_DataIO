@@ -35,12 +35,17 @@ class ImportService
 
         while (($row = fgetcsv($handle, 0, $this->config['delimiter'] ?? ',')) !== false) {
             $rowNumber++;
-            $rowData = array_combine($headers, $row);
 
-            if ($rowData === false) {
-                $this->errors[] = "Row {$rowNumber}: Column count mismatch";
+            if (empty($row) || (count($row) === 1 && $row[0] === null)) {
                 continue;
             }
+
+            if (count($row) !== count($headers)) {
+                $this->errors[] = "Row {$rowNumber}: Column count mismatch (expected " . count($headers) . ", got " . count($row) . ")";
+                continue;
+            }
+
+            $rowData = array_combine($headers, $row);
 
             $rowData = $this->applyFieldMapping($rowData);
             $rowData = $this->applyDefaults($rowData);
