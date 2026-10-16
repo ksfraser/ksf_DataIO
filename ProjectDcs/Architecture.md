@@ -37,7 +37,7 @@ ksf_DataIO/
 ├── demo.php                     # Demo script
 ├── includes/                    # FA includes (future)
 ├── src/
-│   └── Ksfraser/
+│   └── ksfraser/
 │       └── DataIO/
 │           ├── ImportService.php     # Core import logic
 │           ├── ExportService.php     # Core export logic
@@ -62,7 +62,7 @@ ksf_DataIO/
 
 ### 3.1 ImportService
 ```php
-namespace Ksfraser\DataIO;
+namespace ksfraser\DataIO;
 
 class ImportService
 {
@@ -97,7 +97,7 @@ class ImportService
 
 ### 3.2 ExportService
 ```php
-namespace Ksfraser\DataIO;
+namespace ksfraser\DataIO;
 
 class ExportService
 {
@@ -122,7 +122,7 @@ class ExportService
 
 ### 3.3 FieldMappingService
 ```php
-namespace Ksfraser\DataIO;
+namespace ksfraser\DataIO;
 
 class FieldMappingService
 {
@@ -160,7 +160,7 @@ class FieldMappingService
 
 ### 3.4 ImportWizard
 ```php
-namespace Ksfraser\DataIO;
+namespace ksfraser\DataIO;
 
 class ImportWizard
 {

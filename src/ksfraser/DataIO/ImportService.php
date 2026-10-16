@@ -1,6 +1,6 @@
 <?php
 
-namespace Ksfraser\DataIO;
+namespace ksfraser\DataIO;
 
 class ImportService
 {

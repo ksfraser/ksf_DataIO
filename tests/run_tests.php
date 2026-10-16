@@ -6,16 +6,16 @@ ini_set('display_errors', 1);
 
 echo "=== DataIO Integration Tests ===\n\n";
 
-require_once __DIR__ . '/../src/Ksfraser/DataIO/ImportService.php';
-require_once __DIR__ . '/../src/Ksfraser/DataIO/ExportService.php';
-require_once __DIR__ . '/../src/Ksfraser/DataIO/ImportWizard.php';
-require_once __DIR__ . '/../src/Ksfraser/DataIO/DataIOService.php';
+require_once __DIR__ . '/../src/ksfraser/DataIO/ImportService.php';
+require_once __DIR__ . '/../src/ksfraser/DataIO/ExportService.php';
+require_once __DIR__ . '/../src/ksfraser/DataIO/ImportWizard.php';
+require_once __DIR__ . '/../src/ksfraser/DataIO/DataIOService.php';
 
-use Ksfraser\DataIO\ImportService;
-use Ksfraser\DataIO\ExportService;
-use Ksfraser\DataIO\ImportWizard;
-use Ksfraser\DataIO\DataIOService;
-use Ksfraser\DataIO\FieldMappingService;
+use ksfraser\DataIO\ImportService;
+use ksfraser\DataIO\ExportService;
+use ksfraser\DataIO\ImportWizard;
+use ksfraser\DataIO\DataIOService;
+use ksfraser\DataIO\FieldMappingService;
 
 if (!defined('TB_PREF')) define('TB_PREF', '');
 
@@ -38,8 +38,8 @@ function test($name, $condition, $message = '') {
 }
 
 function ksf_test_autoload($class) {
-    $prefix = 'Ksfraser\\DataIO\\';
-    $base = __DIR__ . '/../src/Ksfraser/DataIO/';
+    $prefix = 'ksfraser\\DataIO\\';
+    $base = __DIR__ . '/../src/ksfraser/DataIO/';
     $len = strlen($prefix);
     if (strncmp($prefix, $class, $len) !== 0) return;
     $rel = substr($class, $len);

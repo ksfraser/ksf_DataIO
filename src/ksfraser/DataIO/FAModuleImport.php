@@ -12,7 +12,7 @@ function ksf_render_import_page($module, $target_fields, $title = 'Import Data',
         $tempfile = sys_get_temp_dir() . '/ksf_import_' . time() . '.csv';
         file_put_contents($tempfile, $file_content);
         
-        $wizard = \Ksfraser\DataIO\ImportWizard::create();
+        $wizard = \ksfraser\DataIO\ImportWizard::create();
         $preview = $wizard->loadFile($tempfile)->getFilePreview();
         $preview['filepath'] = $tempfile;
     }
@@ -23,7 +23,7 @@ function ksf_render_import_page($module, $target_fields, $title = 'Import Data',
         $tempfile = sys_get_temp_dir() . '/ksf_import_' . time() . '.csv';
         file_put_contents($tempfile, $file_content);
         
-        $wizard = \Ksfraser\DataIO\ImportWizard::create();
+        $wizard = \ksfraser\DataIO\ImportWizard::create();
         $wizard->loadFile($tempfile);
         $wizard->setMapping($mapping);
         $preview = $wizard->execute();
@@ -34,14 +34,14 @@ function ksf_render_import_page($module, $target_fields, $title = 'Import Data',
         $mapping = json_decode(base64_decode($mapping_json), true);
         
         if (!empty($_POST['save_mapping']) && !empty($_POST['mapping_name'])) {
-            $svc = new \Ksfraser\DataIO\FieldMappingService();
+            $svc = new \ksfraser\DataIO\FieldMappingService();
             $svc->createMapping($_POST['mapping_name'], $mapping, $module);
         }
         
         global $db;
         include_once INCLUDES . '/db.inc';
         
-        $wizard = \Ksfraser\DataIO\ImportWizard::create(['fa_path' => PLUGINS . '/..']);
+        $wizard = \ksfraser\DataIO\ImportWizard::create(['fa_path' => PLUGINS . '/..']);
         $tempfile = sys_get_temp_dir() . '/ksf_import_' . time() . '.csv';
         file_put_contents($tempfile, base64_decode($_POST['import_file_content'] ?? ''));
         
@@ -82,7 +82,7 @@ function ksf_render_import_page($module, $target_fields, $title = 'Import Data',
     
     <?php 
     $fileHeaders = $preview['headers'] ?? [];
-    $mappingSvc = new \Ksfraser\DataIO\FieldMappingService();
+    $mappingSvc = new \ksfraser\DataIO\FieldMappingService();
     $autoMapping = $mappingSvc->autoMap($fileHeaders, $target_fields);
     ?>
     

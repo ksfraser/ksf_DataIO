@@ -85,7 +85,7 @@ if (!defined('KSF_FA_IMPORT_INCLUDED')) {
             $module = $_POST['module'] ?? '';
             
             try {
-                $svc = new \Ksfraser\DataIO\FieldMappingService();
+                $svc = new \ksfraser\DataIO\FieldMappingService();
                 $svc->createMapping($name, $mapping, $module);
                 display_notification("Mapping '{$name}' saved.");
             } catch (\Exception $e) {
@@ -113,7 +113,7 @@ if (!defined('KSF_FA_IMPORT_INCLUDED')) {
         $mapping = json_decode($data['mapping'], true);
         $processor = apply_filters("ksf_{$module}_import_processor", null);
         
-        $wizard = \Ksfraser\DataIO\ImportWizard::create();
+        $wizard = \ksfraser\DataIO\ImportWizard::create();
         $wizard->loadFile($tempfile);
         $wizard->setMapping($mapping);
         
@@ -138,7 +138,7 @@ function ksf_fa_render_import_page($module, $target_fields, $title = 'Import Dat
     $sample = $data['sample'] ?? [];
     $mapping = json_decode($data['mapping'] ?? '{}', true);
     
-    $mappingSvc = new \Ksfraser\DataIO\FieldMappingService();
+    $mappingSvc = new \ksfraser\DataIO\FieldMappingService();
     $autoMapping = $mappingSvc->autoMap($headers, $target_fields);
     
     global $page_title;
@@ -219,7 +219,7 @@ function ksf_fa_render_import_page($module, $target_fields, $title = 'Import Dat
         </form>
         <?php
     } elseif ($step == 3 && !empty($mapping)) {
-        $wizard = \Ksfraser\DataIO\ImportWizard::create();
+        $wizard = \ksfraser\DataIO\ImportWizard::create();
         $tempfile = sys_get_temp_dir() . '/ksf_import_' . time() . '.csv';
         file_put_contents($tempfile, base64_decode($data['content']));
         

@@ -3,8 +3,8 @@
 echo "=== Import Wizard 2-Step Workflow Demo ===\n\n";
 
 spl_autoload_register(function ($class) {
-    $prefix = 'Ksfraser\\DataIO\\';
-    $base_dir = __DIR__ . '/src/Ksfraser/DataIO/';
+    $prefix = 'ksfraser\\DataIO\\';
+    $base_dir = __DIR__ . '/src/ksfraser/DataIO/';
     $len = strlen($prefix);
     if (strncmp($prefix, $class, $len) !== 0) return;
     $relative_class = substr($class, $len);
@@ -12,8 +12,8 @@ spl_autoload_register(function ($class) {
     if (file_exists($file)) require $file;
 });
 
-use Ksfraser\DataIO\ImportWizard;
-use Ksfraser\DataIO\FieldMappingService;
+use ksfraser\DataIO\ImportWizard;
+use ksfraser\DataIO\FieldMappingService;
 
 file_put_contents('/tmp/employees.csv', "EmpNo,FullName,Email,Department,HireDate\n101,John Smith,john@company.com,IT,2023-01-15\n102,Jane Doe,jane@company.com,HR,2023-02-20\n103,Bob Wilson,bob@company.com,Sales,2023-03-10\n");
 

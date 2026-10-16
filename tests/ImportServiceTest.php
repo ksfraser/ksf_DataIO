@@ -1,14 +1,14 @@
 <?php
 
-namespace Ksfraser\DataIO\Tests;
+namespace ksfraser\DataIO\Tests;
 
 use PHPUnit\Framework\TestCase;
-use Ksfraser\DataIO\ImportService;
-use Ksfraser\DataIO\ExportService;
-use Ksfraser\DataIO\ImportWizard;
-use Ksfraser\DataIO\FieldMappingService;
-use Ksfraser\DataIO\DataIOService;
-use Ksfraser\DataIO\ImportUI;
+use ksfraser\DataIO\ImportService;
+use ksfraser\DataIO\ExportService;
+use ksfraser\DataIO\ImportWizard;
+use ksfraser\DataIO\FieldMappingService;
+use ksfraser\DataIO\DataIOService;
+use ksfraser\DataIO\ImportUI;
 
 class ImportServiceTest extends TestCase
 {

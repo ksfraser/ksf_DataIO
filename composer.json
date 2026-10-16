@@ -11,7 +11,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Ksfraser\\": "src/Ksfraser/"
+            "ksfraser\\": "src/ksfraser/"
         }
     },
     "require-dev": {

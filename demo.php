@@ -9,8 +9,8 @@ $demoData = [
 ];
 
 spl_autoload_register(function ($class) {
-    $prefix = 'Ksfraser\\DataIO\\';
-    $base_dir = __DIR__ . '/src/Ksfraser/DataIO/';
+    $prefix = 'ksfraser\\DataIO\\';
+    $base_dir = __DIR__ . '/src/ksfraser/DataIO/';
     $len = strlen($prefix);
     if (strncmp($prefix, $class, $len) !== 0) return;
     $relative_class = substr($class, $len);
@@ -18,8 +18,8 @@ spl_autoload_register(function ($class) {
     if (file_exists($file)) require $file;
 });
 
-use Ksfraser\DataIO\ExportService;
-use Ksfraser\DataIO\ImportService;
+use ksfraser\DataIO\ExportService;
+use ksfraser\DataIO\ImportService;
 
 echo "1. CSV Export:\n";
 $exporter = new ExportService(['delimiter' => ',', 'bom' => true]);

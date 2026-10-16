@@ -1,8 +1,8 @@
 <?php
 
 spl_autoload_register(function ($class) {
-    $prefix = 'Ksfraser\\DataIO\\';
-    $base_dir = __DIR__ . '/src/Ksfraser/DataIO/';
+    $prefix = 'ksfraser\\DataIO\\';
+    $base_dir = __DIR__ . '/src/ksfraser/DataIO/';
     $len = strlen($prefix);
     if (strncmp($prefix, $class, $len) !== 0) return;
     $relative_class = substr($class, $len);
